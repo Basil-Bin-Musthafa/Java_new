@@ -1,21 +1,64 @@
-class Rectangle
+import java.util.Scanner;
+class Stu
 {
-    int l,b;
-    Rectangle(int l, int b)
+    int regNo;
+    String name;
+    int phy,chem,maths;
+    char findGrade()
     {
-        this.l = l;
-        this.b = b;
-    }
-    int findArea()
-    {
-        return (l*b);
+        char grade;
+        double per = (phy + chem + maths) /150.0 *100;
+        if(per >= 90 )
+        {
+            grade = 'S';
+        }
+        else if(per >= 80)
+        {
+            grade = 'A';
+        }
+        else if(per >= 70)
+        {
+            grade = 'B';
+        }
+        else if(per >= 60)
+        {
+            grade = 'C';
+        }
+        else if(per >= 50)
+        {
+            grade = 'D';
+        }
+        else if(per >= 40)
+        {
+            grade = 'E';
+        }
+        else 
+        {
+            grade = 'F';
+        }
+         
+        return grade;
     }
 }
-class AreaOfRectangleP1
+class Student
 {
     public static void main(String[] args)
     {
-        Rectangle r = new Rectangle(20,10);
-        System.out.println("Area of Rectangle is "+r.findArea());
+        Stu st = new Stu();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter register number :");
+        st.regNo = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter student name :");
+        st.name = sc.nextLine();
+        System.out.println("Enter physics mark :");
+        st.phy = sc.nextInt();
+        System.out.println("Enter chemistry mark :");
+        st.chem = sc.nextInt();
+        System.out.println("Enter maths mark :");
+        st.maths = sc.nextInt();
+        
+        System.out.println("Student grade is :" +st.findGrade());
     }
 }
